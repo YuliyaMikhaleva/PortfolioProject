@@ -1,0 +1,186 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: var(--color-black);
+}
+
+html{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+body{
+  font-family: var(--font-noah);
+  color: var(--color-black);
+  min-width: 320px;
+  overflow-x: hidden;
+  font-size: 20px;
+  line-height: 26px;
+  min-height: var(--window-height);
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-mint);
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px;
+  }
+}
+
+/* Убираем внутренние отступы */
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class */
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+li {
+  margin: 0;
+}
+
+/* Элементы a, у которых есть атрибут class, сбрасываем до дефолтных стилей */
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &[class] {
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  display: block;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+textarea {
+  resize: none;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+h1,h2,h3,h4,h5{
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 60px;
+  line-height: 68px;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 48px;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 24px;
+  line-height: 32px;
+}
+h5 {
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: uppercase;
+}
+
+
+@include laptop{
+
+  body {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  h1 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  h4{
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+
+  h2 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+@include tablet {
+  body {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  h1 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+
+  h5 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@include phone{
+  h4{
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+  }
+
+  h3{
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

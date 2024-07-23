@@ -1,0 +1,35 @@
+/* Fonts */
+@font-face {
+  font-family: 'Noah';
+  src: local('Noah Regular Italic'), local('Noah-RegularItalic'), url('../fonts/Noah/Noahregularitalic.woff2') format('woff2'), url('../fonts/Noah/Noahregularitalic.woff') format('woff'), url('../fonts/Noah/Noahregularitalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Noah';
+  src: local('Noah Regular'), local('Noah-Regular'), url('../fonts/Noah/Noahregular.woff2') format('woff2'), url('../fonts/Noah/Noahregular.woff') format('woff'), url('../fonts/Noah/Noahregular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noah';
+  src: local('Noah Bold Italic'), local('Noah-BoldItalic'), url('../fonts/Noah/Noahbolditalic.woff2') format('woff2'), url('../fonts/Noah/Noahbolditalic.woff') format('woff'), url('../fonts/Noah/Noahbolditalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Noah';
+  src: local('Noah Bold'), local('Noah-Bold'), url('../fonts/Noah/Noahbold.woff2') format('woff2'), url('../fonts/Noah/Noahbold.woff') format('woff'), url('../fonts/Noah/Noahbold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pudelinka';
+  src: local('Pudelinka'), local('Pudelinka'), url('../fonts/Pudelinka/Pudelinka.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
