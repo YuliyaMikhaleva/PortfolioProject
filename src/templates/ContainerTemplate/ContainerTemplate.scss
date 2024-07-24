@@ -1,0 +1,44 @@
+.container-template{
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  &--all-width{
+    display: none;
+  }
+
+}
+
+@include desktop{
+  .container-template {
+    max-width: calc(100% - 64px);
+  }
+
+}
+
+@include laptop{
+  .container-template{
+    max-width: calc(100% - 75px);
+  }
+}
+
+@include tablet{
+  .container-template{
+    &--all-width{
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+@include phone{
+
+  .container-template {
+    max-width: calc(100% - 32px);
+
+    &--mobile{
+      max-width: calc(100% - 16px);
+    }
+  }
+
+}

@@ -1,0 +1,9 @@
+.app-header-nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 50px;
+
+  a.active {
+    color: var(--color-mint)
+  }
+}

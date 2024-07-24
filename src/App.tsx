@@ -1,13 +1,17 @@
 import 'assets/styles/style.scss'
+import AppBody from "./components/AppBody/AppBody";
+import AppHeader from "./components/AppHeader/AppHeader";
+import ContainerTemplate from "./templates/ContainerTemplate";
 
 function App() {
 
     return (
-        <>
-            <div className="content">
-                <div className="content__text">content</div>
-            </div>
-        </>
+        <div className="app">
+            <ContainerTemplate>
+                <AppHeader />
+                <AppBody />
+            </ContainerTemplate>
+        </div>
     )
 }
 
