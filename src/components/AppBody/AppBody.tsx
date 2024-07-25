@@ -5,12 +5,13 @@ import ErrorPage from "../../pages/ErrorPage";
 import ContactsPage from "../../pages/ContactsPage";
 import EduPage from "../../pages/EduPage";
 import ProjectsPage from "../../pages/ProjectsPage";
+import MainLayout from "../../layouts/MainLayout";
 
 
 const AppBody = () => {
 
     return (
-        <div>
+        <MainLayout>
             <Routes>
                 <Route path="/" element={<IndexPage />} />
                 <Route path="/contacts" element={<ContactsPage />} />
@@ -19,7 +20,7 @@ const AppBody = () => {
                 <Route path="/ui" element={<UiPage />} />
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
-        </div>
+        </MainLayout>
 
     )
 }
