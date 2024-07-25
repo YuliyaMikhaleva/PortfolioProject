@@ -1,7 +1,11 @@
+import PhotoBlock from "../components/PhotoBlock/PhotoBlock";
+
 const IndexPage = () => {
 
     return (
-        <div>Главная страница</div>
+        <div>
+            <PhotoBlock />
+        </div>
     )
 }
 
