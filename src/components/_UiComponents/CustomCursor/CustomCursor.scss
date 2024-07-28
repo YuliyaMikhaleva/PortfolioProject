@@ -1,8 +1,75 @@
+//.custom-cursor {
+//  //width: 30px;
+//  //height: 30px;
+//  //border: 2px solid var(--color-white);
+//  //border-radius: 100px;
+//  position: absolute;
+//  //pointer-events: none;
+//
+//  width: 50px;
+//  height: 50px;
+//  background: linear-gradient(
+//                  120deg,
+//                  #ff1744,
+//                  #e040fb,
+//                  #2979ff,
+//                  #00e5ff,
+//                  #76ff03
+//  );
+//  background-size: 1600% 1600%;
+//  mix-blend-mode: difference;
+//  pointer-events: none;
+//  z-index: 50;
+//  transition: 0.15s linear;
+//  animation: blobRadius 5s ease infinite, blobBackground 15s ease infinite;
+//}
+//
+//@keyframes blobRadius {
+//  0%,
+//  100% {
+//    border-radius: 43% 77% 80% 40% / 40% 40% 80% 80%;
+//  }
+//  20% {
+//    border-radius: 47% 73% 61% 59% / 47% 75% 45% 73%;
+//  }
+//  40% {
+//    border-radius: 46% 74% 74% 46% / 74% 58% 62% 46%;
+//  }
+//  60% {
+//    border-radius: 47% 73% 61% 59% / 40% 40% 80% 80%;
+//  }
+//  80% {
+//    border-radius: 50% 70% 52% 68% / 51% 61% 59% 69%;
+//  }
+//}
+//
+//@keyframes blobBackground {
+//  0%,
+//  100% {
+//    background-position: 0% 50%;
+//  }
+//  50% {
+//    background-position: 100% 50%;
+//  }
+//}
+
 .custom-cursor {
-  width: 30px;
-  height: 30px;
-  border: 2px solid var(--color-white);
-  border-radius: 100px;
-  position: absolute;
   pointer-events: none;
+  &__large {
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-white);
+    border-radius: 100px;
+    position: fixed;
+    transition: 0.15s linear;
+    mix-blend-mode: difference;
+  }
+  &__small {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 100px;
+    position: fixed;
+    mix-blend-mode: difference;
+  }
 }
