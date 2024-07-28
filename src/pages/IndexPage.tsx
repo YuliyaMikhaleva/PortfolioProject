@@ -2,6 +2,8 @@ import PhotoBlock from "../components/PhotoBlock/PhotoBlock";
 import SnapContainer from "../components/_UiComponents/SnapContainer/SnapContainer";
 import SnapBlock from "../components/_UiComponents/SnapContainer/SnapBlock";
 import ContainerTemplate from "../templates/ContainerTemplate";
+import ParallaxContainer from "../components/_UiComponents/ParallaxContainer/ParallaxContainer";
+import AboutMe from "../components/AboutMe/AboutMe";
 
 const IndexPage = () => {
 
@@ -12,8 +14,12 @@ const IndexPage = () => {
                     <PhotoBlock />
                 </ContainerTemplate>
             </SnapBlock>
-            <SnapBlock>
-                <h1>Новый блок2</h1>
+            <SnapBlock className="new" allHeight>
+                <ParallaxContainer>
+                    <ContainerTemplate>
+                        <AboutMe />
+                    </ContainerTemplate>
+                </ParallaxContainer>
             </SnapBlock>
             <SnapBlock>
                 <h1>Новый блок3</h1>
