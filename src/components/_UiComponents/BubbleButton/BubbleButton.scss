@@ -1,0 +1,44 @@
+.bubble-button {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  max-width: 250px;
+  border: 1px solid currentColor;
+  color: white;
+  @include fontAdaptive(20px, 24px, 500);
+  z-index: var(--z-bottom);
+  cursor: pointer;
+  padding: 12px 30px 12px 31px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  font-family: var(--font-noah);
+  text-align: center;
+  transition: all 0.3s;
+
+  &--white {
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+
+  span {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    opacity: 0.3;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  &:hover {
+    color: var(--color-black);
+
+    span {
+      width: 225%;
+      height: calc(var(--button-width)*2.25);
+      transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+    }
+  }
+}
