@@ -5,12 +5,13 @@ import * as React from "react";
 export interface IBubbleButtonProps {
     children?: React.ReactNode;
     className?: string;
-    white?:boolean
+    white?:boolean;
+    onClick?:() => void;
 
 }
 
-const BubbleButton: React.FC<IBubbleButtonProps> = memo(({children, className, white}) => {
-    const spanEl = useRef<HTMLSpanElement>()
+const BubbleButton: React.FC<IBubbleButtonProps> = memo(({children, className, white, onClick}) => {
+    const spanEl = useRef<any>()
     const buttonEl = useRef<any>()
     const handler = (e:any) => {
         if (buttonEl && buttonEl.current && spanEl && spanEl.current) {
@@ -31,7 +32,7 @@ const BubbleButton: React.FC<IBubbleButtonProps> = memo(({children, className, w
 
 
     return (
-        <button className={classes} ref={buttonEl} onMouseEnter={handler}>
+        <button className={classes} ref={buttonEl} onMouseEnter={handler} onClick={onClick}>
             {children}
             <span ref={spanEl}></span>
         </button>

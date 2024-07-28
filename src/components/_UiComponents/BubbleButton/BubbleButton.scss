@@ -27,8 +27,9 @@
     height: 0;
     border-radius: 50%;
     background-color: var(--color-primary);
-    opacity: 0.3;
+    opacity: 1;
     transform: translate(-50%, -50%);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
     z-index: -1;
   }
 
@@ -38,7 +39,7 @@
     span {
       width: 225%;
       height: calc(var(--button-width)*2.25);
-      transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+      //transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
     }
   }
 }

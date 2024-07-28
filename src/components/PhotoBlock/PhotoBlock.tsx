@@ -6,6 +6,15 @@ import AnimateCircles from "../AnimateComponents/AnimateCircles/AnimateCircles";
 
 const PhotoBlock = () => {
 
+    const aboutMe = () => {
+        const snapContainer = document.querySelector('.snap-container');
+        if (snapContainer) {
+            snapContainer.scrollTo({
+                top: 1000,
+                behavior: "smooth",
+            })
+        }
+    }
     return (
         <div className="photo-block">
             <div>
@@ -13,11 +22,12 @@ const PhotoBlock = () => {
                 <div className="photo-block__text">
                     Если вы зашли сюда, значит хотите узнать про меня
                 </div>
-                <BubbleButton white className="photo-block__button">Узнать подробнее</BubbleButton>
+                <BubbleButton white className="photo-block__button" onClick={aboutMe}>Узнать подробнее</BubbleButton>
                 <br/>
                 <br/>
                 <br/>
                 <AnimateCircles className="photo-block__animate-circles" width={500} height={500} />
+                <div className="photo-block__animate-circles-notes">наведи на меня</div>
             </div>
             <div className="photo-block__container">
                 <div className="photo-block__photo">
