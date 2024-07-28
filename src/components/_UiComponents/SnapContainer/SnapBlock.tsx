@@ -1,13 +1,20 @@
 import "./SnapContainer.scss"
+import * as React from "react";
 
-const SnapItem = ({children}) => {
+export interface ISnapBlockProps {
+    children?: React.ReactNode;
+    className?: string;
+    allHeight?: boolean;
+}
+
+const SnapBlock: React.FC<ISnapBlockProps> = ({children, className, allHeight=false}) => {
 
     return (
-        <div className="snap-container__block">
+        <section className={[className, "snap-container__block", allHeight && "snap-container__block--all-height"].join(' ')}>
             {children}
-        </div>
+        </section>
 
     )
 }
 
-export default SnapItem
+export default SnapBlock

@@ -1,11 +1,19 @@
 import "./SnapContainer.scss"
+import * as React from "react";
+import {FC} from "react";
 
-const SnapContainer = ({children}) => {
+export interface ISnapContainerProps {
+    children?: React.ReactNode;
+    className?: string;
+}
+
+const SnapContainer:FC<ISnapContainerProps> = ({children, className}) => {
+
 
     return (
-        <div className="snap-container">
+        <section className={["snap-container", className ].join('')}>
             {children}
-        </div>
+        </section>
 
     )
 }
