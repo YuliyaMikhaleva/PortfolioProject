@@ -1,7 +1,7 @@
 import "./AppHeaderNav.scss"
 import {NavLink} from "react-router-dom";
 
-const AppHeaderNav = (className?:string) => {
+const AppHeaderNav = ({className}) => {
 
     return (
         <ul className={['app-header-nav', className].join(' ')}>

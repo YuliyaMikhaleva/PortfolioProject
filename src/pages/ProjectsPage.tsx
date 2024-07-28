@@ -1,7 +1,9 @@
+import ContainerTemplate from "../templates/ContainerTemplate";
+
 const ProjectsPage = () => {
 
     return (
-        <div>Опыт работы</div>
+        <ContainerTemplate>Опыт работы</ContainerTemplate>
     )
 }
 

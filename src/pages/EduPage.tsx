@@ -1,7 +1,9 @@
+import ContainerTemplate from "../templates/ContainerTemplate";
+
 const EduPage = () => {
 
     return (
-        <div>Обучение</div>
+        <ContainerTemplate>Обучение</ContainerTemplate>
     )
 }
 

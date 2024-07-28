@@ -8,11 +8,9 @@ function App() {
 
     return (
         <div className="app">
-            <ContainerTemplate>
-                <AppHeader />
-                <AppBody />
-                <CustomCursor />
-            </ContainerTemplate>
+            <AppHeader />
+            <AppBody />
+            <CustomCursor />
         </div>
     )
 }

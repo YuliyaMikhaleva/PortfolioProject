@@ -1,7 +1,9 @@
+import ContainerTemplate from "../templates/ContainerTemplate";
+
 const ErrorPage = () => {
 
     return (
-        <div>Страница не найдена</div>
+        <ContainerTemplate>Страница не найдена</ContainerTemplate>
     )
 }
 

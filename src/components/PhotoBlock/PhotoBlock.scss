@@ -1,7 +1,7 @@
 .photo-block {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-top: 100px;
+  //padding-top: 100px;
   grid-gap: 50px;
   position: relative;
   @include fontAdaptive(130px, 150px);

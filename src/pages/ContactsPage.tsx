@@ -1,7 +1,9 @@
+import ContainerTemplate from "../templates/ContainerTemplate";
+
 const ContactsPage = () => {
 
     return (
-        <div>Контакты</div>
+        <ContainerTemplate>Контакты</ContainerTemplate>
     )
 }
 

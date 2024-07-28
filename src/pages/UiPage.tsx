@@ -1,7 +1,9 @@
+import ContainerTemplate from "../templates/ContainerTemplate";
+
 const UiPage = () => {
 
     return (
-        <div>Cтраница ui-компонентов</div>
+        <ContainerTemplate>Cтраница ui-компонентов</ContainerTemplate>
     )
 }
 

@@ -1,0 +1,31 @@
+.snap-container {
+  $article-colors: #A8FFAC, #FFA8A8, #D9A8FF, #7EBBE9;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+
+  &__block {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 150px 0;
+    //padding-top: 100px;
+    //box-sizing: content-box;
+    &:nth-child(1) {
+      background-color: #A8FFAC;
+    }
+    &:nth-child(2) {
+      background-color: #FFA8A8;
+    }
+    &:nth-child(3) {
+      background-color: #D9A8FF;
+    }
+    &:nth-child(4) {
+      background-color: #7EBBE9;
+    }
+  }
+}
