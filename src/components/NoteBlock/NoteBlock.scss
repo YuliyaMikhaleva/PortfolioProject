@@ -1,0 +1,32 @@
+.note-block {
+  padding: 30px;
+  position: relative;
+  font-size: 30px;
+  line-height: 140%;
+
+  &__circles {
+    display: flex;
+    left: 0;
+    top: -50px;
+    position: absolute;
+  }
+
+
+  &__title {
+    position: relative;
+    padding-left: 30px;
+    color: var(--color-primary);
+    font-size: 50px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 13px;
+      transform: translate(-50%, -50%);
+      background-color: var(--color-primary);
+      width: 30px;
+      height: 4px;
+      border-radius: 50px;
+    }
+  }
+}
