@@ -5,15 +5,20 @@
   max-width: 250px;
   border: 1px solid currentColor;
   color: white;
-  @include fontAdaptive(20px, 24px, 500);
+  @include fontAdaptive(30px, 140%, 500);
   z-index: var(--z-bottom);
   cursor: pointer;
   padding: 12px 30px 12px 31px;
   box-sizing: border-box;
   border-radius: 50px;
-  font-family: var(--font-noah);
+  //font-family: var(--font-noah);
   text-align: center;
   transition: all 0.3s;
+
+  &--white {
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
 
   &--white {
     background-color: var(--color-white);
