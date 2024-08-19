@@ -19,7 +19,11 @@ app.get('/', function (req, res) {
 app.post('/api/express_backend/', (req, res) => { //Строка 9
     // sendEmailHandler("mail");
     if (!req.body) return res.sendStatus(400);
-    console.log('reg111', req.body.data, req.body)
+    if (req.body.data.email && req.body.data.text){
+        console.log('отправка')
+        sendEmailHandler(req.body.data);
+    }
+
     // console.log('reg', req.originalUrl);
     res.json({ data: todoItems });
     // res.send(`111`);
@@ -29,7 +33,7 @@ const todoItems = require('./todo-items.json');
 app.get('/api/todo-items/', (req, res) => {
    res.json({ data: todoItems });
 })
-app.listen(3000, () => {
-    console.log(`Server running on port ${3000}`);
+app.listen(5000, () => {
+    console.log(`Server running on port ${5000}`);
 });
 module.exports = router;

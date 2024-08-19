@@ -57,9 +57,9 @@ const sendEmail = async (options) => {
 
         const mailOptions = {
             from: 'umihaleva93@gmail.com',
-            to: 'umihaleva93@mail.ru',
+            to: options.email,
             subject: 'Hello',
-            html: '<p><b>This is the body of the email</b></p>',
+            html: `<p><b>${options.text}</b></p>`,
             // text: 'This is the body of the email.'
         };
 

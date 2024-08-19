@@ -7,8 +7,8 @@ import SnapContainer from "components/_UiComponents/SnapContainer/SnapContainer.
 import SnapBlock from "components/_UiComponents/SnapContainer/SnapBlock.tsx";
 import AppFooter from "components/AppFooter/AppFooter.tsx";
 
+export const SERVER_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000' : ''
 function App() {
-
     const upHandler = () => {
         const snapContainer = document.querySelector('.snap-container');
         if (snapContainer) {
@@ -23,8 +23,8 @@ function App() {
     return (
         <div className="app">
             <SnapContainer>
-                <AppHeader />
-                <AppBody />
+                {/*<AppHeader />*/}
+                {/*<AppBody />*/}
                 <CustomCursor />
                 <Button circle className="app__up-button" onClick={upHandler}>Наверх</Button>
                 <SnapBlock>

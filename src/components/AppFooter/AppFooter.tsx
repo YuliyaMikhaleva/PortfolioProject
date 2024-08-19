@@ -1,6 +1,6 @@
 import "./AppFooter.scss"
 import ContainerTemplate from "../../templates/ContainerTemplate";
-import axios from "axios";
+import {SERVER_URL} from "../../App";
 
 const AppFooter = () => {
 
@@ -12,13 +12,16 @@ const AppFooter = () => {
         //
         //     })
         // ).then(res => console.log('res', res));
-        let response = fetch('/api/express_backend/', {
+        let response = fetch(`${SERVER_URL}/api/express_backend/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                data:[],
+                data:{
+                    email: 'umihaleva93@mail.ru',
+                    text: 'Какой-то новый текст'
+                },
             })
         });
     }
@@ -26,14 +29,14 @@ const AppFooter = () => {
     return (
         <nav className="app-footer">
             <ContainerTemplate>
-                <div>Мои контакты:</div>
+                {/*<div>Мои контакты:</div>*/}
                 <ul>
-                    <li>
-                        <a href="https://t.me/yulyamikh" target="_blank">Мой телеграм</a>
-                    </li>
-                    <li>
-                        <a href="mailto:umihaleva93@mail.ru">Напишите мне</a>
-                    </li>
+                    {/*<li>*/}
+                    {/*    <a href="https://t.me/yulyamikh" target="_blank">Мой телеграм</a>*/}
+                    {/*</li>*/}
+                    {/*<li>*/}
+                    {/*    <a href="mailto:umihaleva93@mail.ru">Напишите мне</a>*/}
+                    {/*</li>*/}
                     <form onSubmit={submit}>
                         <label htmlFor="name">Ваше имя111</label>
                         <input id="name" type="text"/>
