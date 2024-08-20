@@ -1,7 +1,15 @@
 import "./AnimateCircles.scss"
+import React, {memo} from "react";
 
-const AnimateCircles = ({className, width=500, height=500}) => {
-    const classes = ["animate-circles", className].join(' ')
+export interface IAnimateCirclesProps {
+    className?: string,
+    width?: number,
+    height?: number,
+    right?: boolean
+}
+
+const AnimateCircles:React.FC<IAnimateCirclesProps> = memo(({className, width=500, height=500, right}) => {
+    const classes = ["animate-circles", className, right && 'animate-circles--right'].join(' ')
     return (
         <div className={classes} style={{width: width+'px', height: height+'px'}}>
             <i></i>
@@ -10,6 +18,6 @@ const AnimateCircles = ({className, width=500, height=500}) => {
         </div>
 
     )
-}
+})
 
 export default AnimateCircles

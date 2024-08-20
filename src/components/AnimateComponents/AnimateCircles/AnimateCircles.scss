@@ -2,6 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-117%, -100%);
   i {
     position: absolute;
     inset: 0;
@@ -19,6 +23,14 @@
       border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
       animation: animate2 10s linear infinite;
     }
+  }
+
+
+
+
+  &--right {
+    position: absolute;
+    transform: translate(150%, -20%);
   }
 
   &:hover{
