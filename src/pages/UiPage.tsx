@@ -1,9 +1,10 @@
-import ContainerTemplate from "../templates/ContainerTemplate";
-
+import "./uiPage.scss"
 const UiPage = () => {
 
     return (
-        <ContainerTemplate>Cтраница ui-компонентов</ContainerTemplate>
+        <div className="ui-page">
+            1111
+        </div>
     )
 }
 
