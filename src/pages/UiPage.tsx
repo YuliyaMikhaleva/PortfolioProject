@@ -6,6 +6,7 @@ import {useInput} from "hooks/useInput.tsx";
 import {useEffect, useRef, useState} from "react";
 import UiCheckbox from "components/_UiComponents/UiCheckbox/UiCheckbox.tsx";
 import UiRadio from "components/_UiComponents/UiRadio/UiRadio.tsx";
+import UiLink from "components/_UiComponents/UiLink/UiLink.tsx";
 
 const UiPage = () => {
     const {bind: codeNameBind, value: codeNameValue, setValue: setCodeNameValue } = useInput('');
@@ -61,6 +62,9 @@ const UiPage = () => {
                 <UiRadio name="name" id="2" value="value2" label="label2" onChange={() => setRadioAnswer('value2')} />
                 <UiRadio name="name" id="3" value="value3" label="label3" onChange={() => setRadioAnswer('value3')} />
             </div>
+            <br/>
+            <br/>
+            <UiLink>Ссылка</UiLink>
         </div>
     )
 }
