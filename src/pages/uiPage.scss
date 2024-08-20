@@ -1,3 +1,13 @@
 .ui-page {
   color: red;
+
+  &__bubble-button{
+    border-color: black;
+    color: black;
+  }
+
+  &__circle-button {
+    background-color: transparent;
+    border: 1px solid black;
+  }
 }
