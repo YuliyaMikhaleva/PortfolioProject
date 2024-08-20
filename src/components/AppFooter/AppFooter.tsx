@@ -1,11 +1,14 @@
 import "./AppFooter.scss"
 import ContainerTemplate from "../../templates/ContainerTemplate";
 import {SERVER_URL} from "../../App";
-
+import {useRef} from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 const AppFooter = () => {
+    const recaptchaRef = useRef();
+    const submit = async (e:any) => {
 
-    const submit = (e:any) => {
         e.preventDefault();
+        const token = await recaptchaRef.current.executeAsync();
         // axios.post(
         //     `/api/express_backend/`,
         //     JSON.stringify({
@@ -20,10 +23,16 @@ const AppFooter = () => {
             body: JSON.stringify({
                 data:{
                     email: 'umihaleva93@mail.ru',
-                    text: 'Какой-то новый текст'
+                    text: 'Какой-то новый текст',
+                    gtoken: token,
                 },
             })
         });
+    }
+
+
+    function onChange(value) {
+        console.log("Captcha value:", value);
     }
 
     return (
@@ -38,6 +47,12 @@ const AppFooter = () => {
                     {/*    <a href="mailto:umihaleva93@mail.ru">Напишите мне</a>*/}
                     {/*</li>*/}
                     <form onSubmit={submit}>
+                        <ReCAPTCHA
+                            ref={recaptchaRef}
+                            size="invisible"
+                            sitekey="6LeLCyoqAAAAAMN-V13DbH9LLjMoO-VIzoNrdRb4"
+                            onChange={onChange}
+                        />
                         <label htmlFor="name">Ваше имя111</label>
                         <input id="name" type="text"/>
                         <label htmlFor="mail">Ваша почта</label>
