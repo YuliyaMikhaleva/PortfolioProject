@@ -1,5 +1,4 @@
 .ui-page {
-  color: red;
 
   &__bubble-button{
     border-color: black;
@@ -9,5 +8,14 @@
   &__circle-button {
     background-color: transparent;
     border: 1px solid black;
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+  }
+
+  &__label {
+    margin-left: 10px;
   }
 }
