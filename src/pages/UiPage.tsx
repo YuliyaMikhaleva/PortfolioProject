@@ -7,12 +7,16 @@ import {useEffect, useRef, useState} from "react";
 import UiCheckbox from "components/_UiComponents/UiCheckbox/UiCheckbox.tsx";
 import UiRadio from "components/_UiComponents/UiRadio/UiRadio.tsx";
 import UiLink from "components/_UiComponents/UiLink/UiLink.tsx";
+import {useSwitch} from "hooks/useSwitch.tsx";
+import Switch from "components/_UiComponents/Switch/Switch.tsx";
 
 const UiPage = () => {
     const {bind: codeNameBind, value: codeNameValue, setValue: setCodeNameValue } = useInput('');
     const {bind: codeSoNameBind, value: codeSoNameValue, setValue: setCodeSoNameValue } = useInput('');
     const {bind: checkboxBind, value: checkboxValue, setValue: setCheckboxValue } = useInput('false');
     const [radioAnswer, setRadioAnswer] = useState('')
+    const { toggle: toggleOn, value: isOn } = useSwitch(false);
+
     const checkboxEl = useRef()
     useEffect(() => {
         return () => {
@@ -30,7 +34,9 @@ const UiPage = () => {
         console.log('radioAnswer', radioAnswer)
     }, [radioAnswer]);
 
-
+    useEffect(() => {
+        console.log('isOn', isOn)
+    }, [isOn]);
     return (
         <div className="ui-page">
             <BubbleButton className="ui-page__bubble-button">Bubble</BubbleButton>
@@ -65,6 +71,11 @@ const UiPage = () => {
             <br/>
             <br/>
             <UiLink>Ссылка</UiLink>
+            <br/>
+            <br/>
+            <Switch active={isOn} onClick={() => toggleOn()} className="ui-page__switch">
+                Генерация сертификата
+            </Switch>
         </div>
     )
 }
