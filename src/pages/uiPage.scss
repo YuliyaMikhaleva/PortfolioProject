@@ -18,4 +18,10 @@
   &__label {
     margin-left: 10px;
   }
+
+  &__radio-list {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+  }
 }
