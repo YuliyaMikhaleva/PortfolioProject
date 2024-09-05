@@ -14,7 +14,7 @@ const verifyRecaptcha = async (token) => {
     });
     return response.data;
 };
-
+app.set('trust proxy', true)
 
 
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -31,6 +31,7 @@ app.get('/', function (req, res) {
 // Создание GET маршрута
 app.post('/api/express_backend/', async (req, res) => { //Строка 9
     // sendEmailHandler("mail");
+    console.log('req.ips', req.ips);
     console.log('req.ip', req.ip);
     const ipAddress = req.ip;
     if (!req.body) return res.sendStatus(400);
@@ -53,7 +54,16 @@ app.post('/api/express_backend/', async (req, res) => { //Строка 9
         if (recaptchaResponse.success) {
             // Проверка пройдена, обрабатывай запрос
             res.status(200).send('Success');
-            console.log('params', req.body)
+            // console.log('clientIp', clientIp)
+            console.log('req.header', req.header)
+            console.log('req.headers', req.headers);
+            console.log('req.header(\'x-forwarded-for\')', req.header('x-forwarded-for'))
+            console.log('req.connection.remoteAddress', req.connection.remoteAddress)
+            console.log('req.socket.remoteAddress', req.socket.remoteAddress)
+            console.log('req.headers[\'x-forwarded-for\']', req.headers['x-forwarded-for'])
+            console.log('req.headers[\'x-client-ip\']', req.headers['x-client-ip'])
+            var ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
+            console.log('ip', ip)
             if (req.body.data.email && req.body.data.text){
                 console.log('отправка', ipAddress, ipAddress.toString())
                 let data = {
