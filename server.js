@@ -31,6 +31,8 @@ app.get('/', function (req, res) {
 // Создание GET маршрута
 app.post('/api/express_backend/', async (req, res) => { //Строка 9
     // sendEmailHandler("mail");
+    console.log('req.ip', req.ip);
+    const ipAddress = req.ip;
     if (!req.body) return res.sendStatus(400);
     // let params = {
     //     secret: '6LeLCyoqAAAAABZV6vAQyhKHcsWAzNbVr7G3CO-Z',
@@ -51,6 +53,15 @@ app.post('/api/express_backend/', async (req, res) => { //Строка 9
         if (recaptchaResponse.success) {
             // Проверка пройдена, обрабатывай запрос
             res.status(200).send('Success');
+            console.log('params', req.body)
+            if (req.body.data.email && req.body.data.text){
+                console.log('отправка', ipAddress, ipAddress.toString())
+                let data = {
+                    ...req.body.data,
+                    ip: ipAddress
+                }
+                sendEmailHandler(data);
+            }
         } else {
             // Ошибка проверки reCAPTCHA
             res.status(400).send('reCAPTCHA verification failed');
@@ -58,11 +69,7 @@ app.post('/api/express_backend/', async (req, res) => { //Строка 9
     } catch (error) {
         res.status(500).send('Internal Server Error');
     }
-    // console.log('params', req.body)
-    // if (req.body.data.email && req.body.data.text){
-    //     console.log('отправка')
-    //     sendEmailHandler(req.body.data);
-    // }
+
 
     // console.log('reg', req.originalUrl);
     // res.json({ data: todoItems });
