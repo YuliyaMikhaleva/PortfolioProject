@@ -25,27 +25,29 @@ const AppFooter = () => {
 
     const submit = async (e:any) => {
         e.preventDefault();
-        // @ts-ignore
-        const token = await recaptchaRef.current.executeAsync();
-        fetch(`${SERVER_URL}/api/express_backend/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify({
-                data:{
-                    email: codeEmailValue,
-                    text: `
+        if (!document.querySelector('.text-input--error')) {
+            // @ts-ignore
+            const token = await recaptchaRef.current.executeAsync();
+            fetch(`${SERVER_URL}/api/express_backend/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify({
+                    data:{
+                        email: codeEmailValue,
+                        text: `
                     Имя: ${codeNameValue},
                     Текст сообщения: ${codeTextValue},
                     ` ,
-                    gtoken: token,
-                },
-            })
-        }).then(() => {
-            clearData();
-            setActivePopup(true);
-        });
+                        gtoken: token,
+                    },
+                })
+            }).then(() => {
+                clearData();
+                setActivePopup(true);
+            });
+        }
     }
 
 
@@ -53,7 +55,6 @@ const AppFooter = () => {
         console.log("Captcha value:", value);
     }
 
-    console.log('codeNameValue.length', codeNameValue.length)
     return (
         <nav className="app-footer">
             <ContainerTemplate>
@@ -70,7 +71,7 @@ const AppFooter = () => {
                         <TextInput className="app-footer__input" placeholder="Ваше имя" name="name" value={codeNameValue} onChange={codeNameBind.onChange}/>
                         <TextInput className="app-footer__input" placeholder="Электронная почта" name="email" value={codeEmailValue} onChange={codeEmailBind.onChange}/>
                         <TextArea className="app-footer__input" placeholder="Текст сообщения" value={codeTextValue} onChange={codeTextBind.onChange} />
-                        <Button className="app-footer__submit" disabled={!(codeNameValue.length && codeEmailValue.length && codeTextValue.length)}>Отправить</Button>
+                        <Button className="app-footer__submit" disabled={!(codeNameValue.length && codeEmailValue.length && codeTextValue.length) }>Отправить</Button>
                     </form>
 
                 </ul>

@@ -29,8 +29,6 @@ const TextInput: React.FC<ITextInputProps> = memo(({className, placeholder, valu
     ].join(' ');
 
     useEffect(() => {
-        console.log('name', name)
-        console.log('!', name === 'email' && !isValidEmail(value))
         if (value.length) {
             (name === 'email' && !isValidEmail(value)) ? setError('Пример: ivanov@mail.ru') : (
                 (name === 'name' && !isValidName(value)) ? setError('В имени должны содержаться только буквы') : setError('')

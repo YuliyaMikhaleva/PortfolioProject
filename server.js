@@ -50,7 +50,6 @@ app.post('/api/express_backend/', async (req, res) => { //Строка 9
     // console.log('response', response);
     try {
         const recaptchaResponse = await verifyRecaptcha(req.body.data.gtoken);
-        console.log('recaptchaResponse', recaptchaResponse)
 
         if (recaptchaResponse.success) {
             // Проверка пройдена, обрабатывай запрос

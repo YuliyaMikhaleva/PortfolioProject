@@ -1,6 +1,6 @@
 import "./SnapTemplate.scss";
 import * as React from "react";
-import {memo} from "react";
+import {memo, useEffect, useState} from "react";
 import SnapContainer from "components/_UiComponents/SnapContainer/SnapContainer.tsx";
 import AppHeader from "components/AppHeader/AppHeader.tsx";
 import CustomCursor from "components/_UiComponents/CustomCursor/CustomCursor.tsx";
@@ -14,8 +14,23 @@ export interface ISnapTemplateProps {
 }
 
 const SnapTemplate: React.FC<ISnapTemplateProps> = memo(({children, className}) => {
+ const [visibleButton, setVisibleButton] = useState(false);
+ const classes = [' snap-template', className].join(' ');
 
- const classes = [' snap-template', className].join(' ')
+
+    useEffect(() => {
+        const snapContainer = document.querySelector('.snap-container');
+        if (snapContainer) {
+            snapContainer.addEventListener('scroll', () => {
+                if (snapContainer.scrollTop === 0) {
+                    setVisibleButton(false);
+                } else {
+                    setVisibleButton(true)
+                }
+            });
+        }
+    }, []);
+
     const upHandler = () => {
         const snapContainer = document.querySelector('.snap-container');
         if (snapContainer) {
@@ -33,7 +48,9 @@ const SnapTemplate: React.FC<ISnapTemplateProps> = memo(({children, className}) 
           <SnapBlock>
               <AppFooter />
           </SnapBlock>
-          <Button circle className="app__up-button" onClick={upHandler}>Наверх</Button>
+          {visibleButton && (
+              <Button circle className="app__up-button" onClick={upHandler}>Наверх</Button>
+          )}
       </SnapContainer>
   );
 });
