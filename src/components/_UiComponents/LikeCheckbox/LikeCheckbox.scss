@@ -1,0 +1,24 @@
+.like-checkbox {
+  display: flex;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: var(--z-hidden);
+
+    &:checked {
+      + .like-checkbox {
+
+        &__icon {
+          color: var(--color-primary);
+          path {
+            fill: var(--color-primary);
+          }
+        }
+      }
+    }
+  }
+}

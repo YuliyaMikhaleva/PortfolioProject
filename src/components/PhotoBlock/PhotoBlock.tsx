@@ -1,11 +1,11 @@
 import "./PhotoBlock.scss"
 import BubbleButton from "../_UiComponents/BubbleButton/BubbleButton";
 import AnimateCircles from "../AnimateComponents/AnimateCircles/AnimateCircles";
-
-
+import LikeCheckbox from "components/_UiComponents/LikeCheckbox/LikeCheckbox.tsx";
+import {useInput} from "hooks/useInput.tsx";
 
 const PhotoBlock = () => {
-
+    const {bind: codeLikeBind, value: codeLikeValue } = useInput('');
     const aboutMe = () => {
         const snapContainer = document.querySelector('.snap-container');
         if (snapContainer) {
@@ -33,6 +33,7 @@ const PhotoBlock = () => {
                 <div className="photo-block__photo">
                     <img src="https://sun9-76.userapi.com/impg/QnG4aSpnPkwdSBCkdZjPot5Tcp7bBkl0pQNLJg/CWxHsyLPPuE.jpg?size=607x1080&quality=95&sign=d7fef055ea6990a93bf9cac158e824f0&type=album" alt=""/>
                 </div>
+                <LikeCheckbox onChange={codeLikeBind.onChange} value={codeLikeValue} className="photo-block__like" />
                 <div className="photo-block__notes">
                     Юлия, фронтенд-разработчик, город Пермь
                 </div>

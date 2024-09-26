@@ -21,9 +21,7 @@ const AppHeader = () => {
         <nav className="app-header">
             <ContainerTemplate>
                 <AppHeaderNav className="app-header__nav" />
-                <Switch active={isLight} onClick={() => toggleLight()} className="ui-page__switch">
-                    Темная тема
-                </Switch>
+                <Switch active={isLight} onClick={() => toggleLight()} className="ui-page__switch"></Switch>
             </ContainerTemplate>
         </nav>
 

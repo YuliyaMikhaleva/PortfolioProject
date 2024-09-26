@@ -6,6 +6,11 @@
   position: relative;
   @include fontAdaptive(130px, 150px);
 
+  &__like {
+    position: absolute;
+    right: 30px;
+  }
+
   &__button {
     max-width: 200px;
     margin-top: 30px;
