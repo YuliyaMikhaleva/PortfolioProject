@@ -1,10 +1,18 @@
 .text-input {
   position: relative;
 
+  &__error {
+    color: darkred;
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    @include fontAdaptive(16px, 16px)
+  }
+
   input[type="text"], input[type="password"] {
     width: 100%;
     height: 70px;
-    padding: 10px 15px 10px;
+    padding: 15px;
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-5);
     border-radius: 8px;
