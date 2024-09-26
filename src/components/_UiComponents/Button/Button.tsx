@@ -7,14 +7,22 @@ export interface IButtonProps {
     className?: string;
     circle?:boolean;
     onClick?:() => void;
+    disabled?: boolean;
 
 }
 
-const Button: React.FC<IButtonProps> = memo(({children, className, circle, onClick}) => {
+const Button: React.FC<IButtonProps> = memo(({
+                                                 children,
+                                                 className,
+                                                 circle,
+                                                 onClick,
+                                                 disabled
+}) => {
 
     const classes = [
         'button',
         circle && 'button--circle',
+        disabled && 'button--disabled',
         className,
     ].join(' ');
 

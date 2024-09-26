@@ -34,6 +34,7 @@ app.post('/api/express_backend/', async (req, res) => { //Строка 9
     console.log('req.ips', req.ips);
     console.log('req.ip', req.ip);
     const ipAddress = req.ip;
+    console.log('req', req);
     if (!req.body) return res.sendStatus(400);
     // let params = {
     //     secret: '6LeLCyoqAAAAABZV6vAQyhKHcsWAzNbVr7G3CO-Z',
@@ -71,6 +72,7 @@ app.post('/api/express_backend/', async (req, res) => { //Строка 9
                     ip: ipAddress
                 }
                 sendEmailHandler(data);
+                sendEmailHandler({...data, toUser: true})
             }
         } else {
             // Ошибка проверки reCAPTCHA

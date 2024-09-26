@@ -1,65 +1,87 @@
 import "./AppFooter.scss"
 import ContainerTemplate from "../../templates/ContainerTemplate";
 import {SERVER_URL} from "../../App";
-import {useRef} from "react";
+import {useRef, useState} from "react";
+// @ts-ignore
 import ReCAPTCHA from "react-google-recaptcha";
+import TextInput from "components/_UiComponents/TextInput/TextInput.tsx";
+import {useInput} from "hooks/useInput.tsx";
+import TextArea from "components/_UiComponents/TextArea/TextArea.tsx";
+import Button from "components/_UiComponents/Button/Button";
+// @ts-ignore
+import EmailImg from "assets/images/Email_30017.png";
+import PopupRight from "components/_PopupComponents/PopupRight/PopupRight.tsx";
 const AppFooter = () => {
     const recaptchaRef = useRef();
-    const submit = async (e:any) => {
+    const {bind: codeNameBind, value: codeNameValue, setValue: setCodeNameValue } = useInput('');
+    const {bind: codeEmailBind, value: codeEmailValue, setValue: setCodeEmailValue } = useInput('');
+    const {bind: codeTextBind, value: codeTextValue, setValue: setCodeTextValue } = useInput('');
+    const [activePopup, setActivePopup] = useState(false);
+    const clearData = () => {
+        setCodeNameValue('');
+        setCodeEmailValue('');
+        setCodeTextValue('');
+    }
 
+    const submit = async (e:any) => {
         e.preventDefault();
+        // @ts-ignore
         const token = await recaptchaRef.current.executeAsync();
-        // axios.post(
-        //     `/api/express_backend/`,
-        //     JSON.stringify({
-        //
-        //     })
-        // ).then(res => console.log('res', res));
-        let response = fetch(`${SERVER_URL}/api/express_backend/`, {
+        fetch(`${SERVER_URL}/api/express_backend/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
                 data:{
-                    email: 'umihaleva93@mail.ru',
-                    text: 'Какой-то новый текст',
+                    email: codeEmailValue,
+                    text: `
+                    Имя: ${codeNameValue},
+                    Текст сообщения: ${codeTextValue},
+                    ` ,
                     gtoken: token,
                 },
             })
+        }).then(() => {
+            clearData();
+            setActivePopup(true);
         });
     }
 
 
-    function onChange(value) {
+    function onChange(value:string) {
         console.log("Captcha value:", value);
     }
 
+    console.log('codeNameValue.length', codeNameValue.length)
     return (
         <nav className="app-footer">
             <ContainerTemplate>
-                {/*<div>Мои контакты:</div>*/}
                 <ul>
-                    {/*<li>*/}
-                    {/*    <a href="https://t.me/yulyamikh" target="_blank">Мой телеграм</a>*/}
-                    {/*</li>*/}
-                    {/*<li>*/}
-                    {/*    <a href="mailto:umihaleva93@mail.ru">Напишите мне</a>*/}
-                    {/*</li>*/}
                     <form onSubmit={submit}>
+                        <h3 className="app-footer__title">Я буду рада, если Вы свяжетесь со мной</h3>
+                        <br/>
                         <ReCAPTCHA
                             ref={recaptchaRef}
                             size="invisible"
                             sitekey="6LeLCyoqAAAAAMN-V13DbH9LLjMoO-VIzoNrdRb4"
                             onChange={onChange}
                         />
-                        <label htmlFor="name">Ваше имя111</label>
-                        <input id="name" type="text"/>
-                        <label htmlFor="mail">Ваша почта</label>
-                        <input id="mail" type="text"/>
-                        <button type="submit">Отправить</button>
+                        <TextInput className="app-footer__input" placeholder="Ваше имя" name="name" value={codeNameValue} onChange={codeNameBind.onChange}/>
+                        <TextInput className="app-footer__input" placeholder="Электронная почта" name="email" value={codeEmailValue} onChange={codeEmailBind.onChange}/>
+                        <TextArea className="app-footer__input" placeholder="Текст сообщения" value={codeTextValue} onChange={codeTextBind.onChange} />
+                        <Button className="app-footer__submit" disabled={!(codeNameValue.length && codeEmailValue.length && codeTextValue.length)}>Отправить</Button>
                     </form>
+
                 </ul>
+                <PopupRight showPopup={activePopup} closePopup={() => setActivePopup(false)}>
+                   <div className="app-footer__answer">
+                       <div>Спасибо! </div>Ваше сообщение отправлено
+                       <div className="app-footer__image">
+                           <img src={EmailImg} alt=""/>
+                       </div>
+                   </div>
+                </PopupRight>
             </ContainerTemplate>
         </nav>
     )

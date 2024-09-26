@@ -10,7 +10,7 @@ const AppHeaderNav:React.FC<IAppHeaderNavProps> = ({className}) => {
     return (
         <ul className={['app-header-nav', className].join(' ')}>
             <li>
-                <NavLink className="app-header-nav__link" to="/">Главная</NavLink>
+                <NavLink className="app-header-nav__link" to="/">Обо мне</NavLink>
             </li>
             <li>
                 <NavLink className="app-header-nav__link" to="/contacts">Контакты</NavLink>
