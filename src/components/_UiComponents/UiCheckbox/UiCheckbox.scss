@@ -1,0 +1,50 @@
+.ui-checkbox {
+  position: relative;
+
+  &__label{
+    padding-left: 26px;
+    position: relative;
+    cursor: pointer;
+    &::after{
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      content: "";
+      width: 18px;
+      height: 18px;
+      background-image: url("CheckIcon.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      visibility: hidden;
+    }
+    &::before{
+      content: "";
+      width: 18px;
+      height: 18px;
+      border: 1px solid black;
+      border-radius: 2px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+    }
+  }
+
+  input {
+    display: none;
+    &:checked{
+      & ~ label{
+        &::after{
+          visibility:visible;
+        }
+      }
+    }
+  }
+
+  &__text{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
