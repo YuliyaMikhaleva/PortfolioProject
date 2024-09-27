@@ -26,7 +26,7 @@ const Switch: React.FunctionComponent<ISwitchProps> = ({
   return (
     <div
       className={classes}
-      onClick={(e) => {
+      onClick={() => {
         onClick();
       }}
     >

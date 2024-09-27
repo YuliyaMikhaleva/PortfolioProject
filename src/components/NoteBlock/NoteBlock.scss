@@ -1,10 +1,10 @@
 .note-block {
-  padding: 30px;
+  padding: 10px 30px;
   position: relative;
   font-size: 30px;
   line-height: 140%;
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: var(--note-color);
+  color: var(--note-color-text);
   width: 100%;
   max-width: 550px;
 

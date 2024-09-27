@@ -5,10 +5,10 @@
     width: 100%;
     height: 200px;
     padding: 20px;
-    background-color: var(--color-white);
+    background-color: var(--note-color);
     border: 1px solid var(--color-gray-5);
     border-radius: 8px;
-    color: var(--color-black);
+    color: var(--note-color-text);
     transition: border-color .2s ease-in-out;
 
     &:focus-visible {
@@ -26,7 +26,7 @@
   }
 
   &__placeholder{
-    color: var(--color-black);
+    color: var(--note-color-text);
     pointer-events: none;
     position: absolute;
     top: 20px;

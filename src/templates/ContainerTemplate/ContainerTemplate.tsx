@@ -6,11 +6,12 @@ export interface IContainerProps {
     children: React.ReactNode;
     className?: string;
     allWidth?: string;
+    notes?: boolean;
 }
 
-const ContainerTemplate: React.FC<IContainerProps> = memo(({children, className, allWidth}) => {
+const ContainerTemplate: React.FC<IContainerProps> = memo(({children, className, allWidth, notes}) => {
 
-    const classes = ['container-template', className, allWidth ? "container-template--all-width" : ""].join('')
+    const classes = ['container-template', className, allWidth ? "container-template--all-width" : "", notes ? "container-template--notes" : "",].join(' ')
 
 
   return (

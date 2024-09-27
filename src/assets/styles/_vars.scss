@@ -1,3 +1,4 @@
+//dark
 :root {
   // =============================================================================
   // Colors
@@ -13,6 +14,15 @@
   --color-primary: var(--color-lavande);
   --color-gray: #555;
   --color-contrast-low: 238, 238, 238;
+
+  //snaps
+  --snap-1: black;
+  --snap-2: black;
+  --snap-3: black;
+  --snap-4: black;
+
+  --note-color: #FFFFFF;
+  --note-color-text: black;
   // =============================================================================
   // Shadow(box-shadow)
   // =============================================================================
@@ -61,4 +71,12 @@
   --color-primary: var(--color-lavande);
   --color-gray: #555;
   --color-contrast-low: 238, 238, 238;
+
+  --snap-1: white;
+  --snap-2: #FFA8A8;
+  --snap-3: #D9A8FF;
+  --snap-4: #7EBBE9;
+
+  --note-color: #FFFFFF;
+  --note-color-text: black;
 }

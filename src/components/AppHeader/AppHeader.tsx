@@ -6,22 +6,22 @@ import Switch from "components/_UiComponents/Switch/Switch.tsx";
 import {useEffect} from "react";
 
 const AppHeader = () => {
-    const { toggle: toggleLight, value: isLight } = useSwitch(false);
+    const { toggle: toggleLight, value: isDark } = useSwitch(true);
 
     useEffect(() => {
         let htmlElement = document.documentElement;
-        if (isLight) {
+        if (isDark) {
             htmlElement.setAttribute('theme', 'dark')
         } else {
             htmlElement.setAttribute('theme', 'light')
         }
-    }, [isLight]);
+    }, [isDark]);
 
     return (
         <nav className="app-header">
             <ContainerTemplate>
-                <AppHeaderNav className="app-header__nav" />
-                <Switch active={isLight} onClick={() => toggleLight()} className="ui-page__switch"></Switch>
+                {/*<AppHeaderNav className="app-header__nav" />*/}
+                <Switch active={isDark} onClick={() => toggleLight()} className="ui-page__switch"></Switch>
             </ContainerTemplate>
         </nav>
 

@@ -7,6 +7,10 @@
     display: none;
   }
 
+  &--notes {
+    margin: 0 200px;
+  }
+
 }
 
 @include desktop{
